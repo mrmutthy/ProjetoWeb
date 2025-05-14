@@ -1,0 +1,30 @@
+{
+  "name": "projetoweb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrmutthy/ProjetoWeb.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/mrmutthy/ProjetoWeb/issues"
+  },
+  "homepage": "https://github.com/mrmutthy/ProjetoWeb#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "express": "^5.1.0",
+    "express-handlebars": "^8.0.2",
+    "express-session": "^1.18.1",
+    "mongoose": "^8.14.3",
+    "pg": "^8.16.0",
+    "sequelize": "^6.37.7"
+  }
+}
