@@ -1,19 +1,35 @@
 <form action="/animalCreate" method="post">
-    Nome: <input type="text" name="nome">
-    <br> <br>
-    Sexo: <input type="text" name="sexo">
-    <br> <br>
-    Data de Nascimento: <input type="text" name="dataNascimento">
-    <br> <br>
-    Espécie: <input type="text" name="especie">
-    <br> <br>
-    Raça: <input type="text" name="raca">
-    <br> <br>
-    Castradp: <input type="boolean" name="castrado">
-    <br> <br>
-    Doenças: <input type="text" name="doencas">
-    <br> <br>
-    Informações: <input type="text" name="informacoes">
-    <br> <br>
+    <label>Nome:</label>
+    <input type="text" name="nome" required>
+    <br><br>
+
+    <label>sexo:</label>
+    <input type="text" name="sexo" required>
+    <br><br>
+
+    <label>dataNascimento:</label>
+    <input type="text" name="dataNascimento" required>
+    <br><br>
+
+    <label>castrado:</label>
+    <input type="text" name="castrado" required>
+    <br><br>
+
+    <label>Informacoes:</label>
+    <input type="number" name="informacoes" required>
+    <br><br>
+
+    <label>Porte:</label>
+    <input type="number" name="porte" required>
+    <br><br>
+
+    <label>Especie:</label>
+    <select name="especieId" >
+        {{#each especies}}
+            <option value="{{id}}">{{especie}}</option>
+        {{/each}}
+    </select>
+    <br><br>
+
     <input type="submit" value="Cadastrar">
 </form>

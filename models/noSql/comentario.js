@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+/*const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const Comentario = Schema({
@@ -7,4 +7,4 @@ const Comentario = Schema({
     autor: { type: String, required: true }
 });
 
-module.exports = mongoose.model("Comentario", Comentario)
+module.exports = mongoose.model("Comentario", Comentario)*/

@@ -3,38 +3,38 @@ const path = require('path');
 
 module.exports = {
     async getCreate(req, res) {
-        res.render('animal/animalCreate');
+        res.render('categoria/categoriaCreate');
     },
     async postCreate(req, res) {
-        db.Animal.create(req.body).then(() => {
+        db.Categoria.create(req.body).then(() => {
             res.redirect('/home');
         }).catch((err) => {
             console.log(err);
         });
     },
     async getList(req, res) {
-        db.Animal.findAll().then(animais => {
-            res.render('animal/animalList', { animais: animais.map(catg => catg.toJSON()) });
+        db.Categoria.findAll().then(categorias => {
+            res.render('categoria/categoriaList', { categorias: categorias.map(catg => catg.toJSON()) });
         }).catch((err) => {
             console.log(err);
         });
     },
     async getUpdate(req, res) {
-        await db.Animal.findByPk(req.params.id).then(
-            animal => res.render('animal/animalUpdate', {animal: animal.dataValues })
+        await db.Categoria.findByPk(req.params.id).then(
+            categoria => res.render('categoria/categoriaUpdate', {categoria: categoria.dataValues })
         ).catch(function (err) {
             console.log(err);
         });
     },
     async postUpdate(req, res) {
-        await db.Animal.update(req.body, { where: { id: req.body.id } }).then(
+        await db.Categoria.update(req.body, { where: { id: req.body.id } }).then(
             res.render('home')
         ).catch(function (err) {
             console.log(err);
         });
     },
     async getDelete(req, res) {
-        await db.Animal.destroy({ where: { id: req.params.id } }).then(
+        await db.Categoria.destroy({ where: { id: req.params.id } }).then(
             res.render('home')
         ).catch(err => {
             console.log(err);

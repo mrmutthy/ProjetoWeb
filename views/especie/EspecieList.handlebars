@@ -1,0 +1,14 @@
+<table border="1px">
+    <tr>
+        <td> Especie </td>
+        <td> Editar </td>
+        <td> Deletar </td>
+    </tr>
+    {{#each especies}}
+    <tr>
+        <td>{{especie}}</td>
+        <td><a href="especieUpdate/{{id}}">Editar</a></td>
+        <td><a href="especieDelete/{{id}}">Deletar</a></td>
+    </tr>
+    {{/each}}
+</table>

@@ -3,12 +3,16 @@
         <td> Login </td>
         <td> Senha</td>
         <td> Tipo</td>
+        <td> Editar </td>
+        <td> Deletar </td>
     </tr>
     {{#each usuarios}}
     <tr>
         <td>{{login}}</td>
         <td>{{senha}}</td>
         <td>{{tipo}}</td>
+        <td><a href="usuarioUpdate/{{id}}">Editar</a></td>
+        <td><a href="usuarioDelete/{{id}}">Deletar</a></td>
     </tr>
     {{/each}}
 </table>

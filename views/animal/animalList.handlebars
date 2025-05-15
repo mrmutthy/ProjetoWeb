@@ -1,13 +1,25 @@
-{{#each animais}}
-<div>
-    <h1>{{nome}}</h1>
-    <p>{{sexo}}</h2>
-    <p>{{dataNascimento}}</p>
-    <p>{{especie}}</p>
-    <p>{{raca}}</p>
-    <p>{{castrado}}</p>
-    <p>{{doencas}}</p>
-    <p>{{informacoes}}</p>
-</div>
-<hr>
-{{/each}}
+<table border="1px">
+    <tr>
+        <td> Nome </td>
+        <td> Sexo </td>
+        <td> Data de Nascimento </td>
+        <td> Especie </td>
+        <td> Castrado </td>
+        <td> Informações </td>
+        <td> Editar </td>
+        <td> Deletar </td>
+    </tr>
+    {{#each animais}}
+    <tr>
+        <td>{{nome}}</td>
+        <td>{{sexo}}</td>
+        <td>{{dataNascimento}}</td>
+        <td>{{especieId}}</td>
+        <td>{{castrado}}</td>
+        <td>{{porte}}</td>
+        <td>{{informacoes}}</td>
+        <td><a href="animalUpdate/{{id}}">Editar</a></td>
+        <td><a href="animalDelete/{{id}}">Deletar</a></td>
+    </tr>
+    {{/each}}
+</table>

@@ -13,11 +13,7 @@ module.exports = {
         res.render('comentario/comentarioCreate');
     },
     async postCreate(req, res) {
-        new Comentario({
-            titulo: req.body.titulo,
-            texto: req.body.texto,
-            autor: req.body.autor
-        }).save().then(() => {
+        new Comentario(req.body).save().then(() => {
             res.redirect('/home');
         }).catch((err) => {
             console.log(err);
@@ -25,9 +21,9 @@ module.exports = {
     },
     async getList(req, res) {
         await Comentario.find().then(comentarios => {
-            res.render('comentario/comentarioList', { comentarios: comentarios.map(comentario => comentario.toJSON()) });
+            res.render('comentario/comentarioList', { comentarios: comentarios.map(coment => coment.toJSON()) });
         }).catch((err) => {
             console.log(err);
         });
-    }
+    }   
 }   

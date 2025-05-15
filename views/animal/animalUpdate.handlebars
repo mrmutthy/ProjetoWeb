@@ -1,0 +1,23 @@
+<form action="/animalUpdate" method="post">
+    <input type="hidden" name="id" value={{animal.id}}>
+    Nome: <input type="text" name="nome"  value="{{animal.nome}}">
+    <br> <br>
+    Data de Nascimento: <input type="text" name="dataNascimento"  value="{{animal.dataNascimento}}">
+    <br> <br>
+    Preparo: <input type="text" name="castrado" value="{{animal.castrado}}">
+    <br> <br>
+    Especie:
+    <select name="especieId">
+        {{#each especies}}
+        <tr>
+            <option value={{id}}>{{especie}}</option>
+        </tr>
+        {{/each}}
+    </select>
+    <br> <br>
+    Preparo: <input type="text" name="porte" value="{{animal.porte}}">
+    <br> <br>
+    Preparo: <input type="text" name="informacoes" value="{{animal.informacoes}}">
+    <br> <br>
+    <input type="submit" value="Editar">
+</form>
