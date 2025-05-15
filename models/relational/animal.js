@@ -1,4 +1,4 @@
-module.exports = (sequelize, Sequelize) => {
+/*module.exports = (sequelize, Sequelize) => {
     const Animal = sequelize.define('animal', {
         id: {
             type: Sequelize.INTEGER,
@@ -27,4 +27,5 @@ module.exports = (sequelize, Sequelize) => {
         }
     });
     return Animal;
-}
+   
+}*/

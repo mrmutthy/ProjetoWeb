@@ -1,4 +1,4 @@
-/*module.exports = (sequelize, Sequelize) => {
+module.exports = (sequelize, Sequelize) => {
     const Categoria = sequelize.define('categoria', {
         id: {
             type: Sequelize.INTEGER,
@@ -9,4 +9,4 @@
         }
     });
     return Categoria;
-}*/
+}

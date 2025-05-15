@@ -4,6 +4,7 @@ const controllerUsuario = require('../controllers/controllerUsuario');
 const controllerComentario = require('../controllers/controllerComentario');
 const controllerCategoria = require('../controllers/controllerCategoria');
 const controllerAnimal = require('../controllers/controllerAnimal');
+const controllerAbrigo = require('../controllers/controllerAbrigo');
 const controllerEspecie = require('../controllers/controllerEspecie');
 const controllerReceita = require('../controllers/controllerReceita');
 const route = express.Router();
@@ -66,10 +67,18 @@ route.get("/animalUpdate/:id", controllerAnimal.getUpdate);
 route.post("/animalUpdate", controllerAnimal.postUpdate);
 route.get("/animalDelete/:id", controllerAnimal.getDelete);
 
-//Controller raca
+//Controller especie
 route.get("/especieCreate", controllerEspecie.getCreate);
 route.post("/especieCreate", controllerEspecie.postCreate);
 route.get("/especieList", controllerEspecie.getList);
 route.get("/especieUpdate/:id", controllerEspecie.getUpdate);
 route.post("/especieUpdate", controllerEspecie.postUpdate);
 route.get("/especieDelete/:id", controllerEspecie.getDelete);
+
+//Controller Abrigo
+route.get("/abrigoCreate", controllerAbrigo.getCreate);
+route.post("/abrigoCreate", controllerAbrigo.postCreate);
+route.get("/abrigoList", controllerAbrigo.getList);
+route.get("/abrigoUpdate/:id", controllerAbrigo.getUpdate);
+route.post("/abrigoUpdate", controllerAbrigo.postUpdate);
+route.get("/abrigoDelete/:id", controllerAbrigo.getDelete);

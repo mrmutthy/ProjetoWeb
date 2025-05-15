@@ -1,43 +1,94 @@
-const db = require('../config/db_sequelize');
+const db = require('../config/db_sequelize'); // Sequelize for Especie
+const Animal = require('../models/noSql/animal'); // Mongoose for Animal
 const path = require('path');
 
 module.exports = {
     async getCreate(req, res) {
-        res.render('animal/animalCreate');
+        try {
+            const especies = await db.Especie.findAll();
+            const abrigos = await db.Abrigo.findAll(); // Fetch abrigos
+
+            res.render('animal/animalCreate', {
+                especies: especies.map(especie => especie.toJSON()),
+                abrigos: abrigos.map(abrigo => abrigo.toJSON()) // Pass abrigos to the view
+            });
+        } catch (error) {
+            console.error("Error fetching especies or abrigos:", error);
+            res.status(500).send("Error fetching especies or abrigos");
+        }
     },
     async postCreate(req, res) {
-        db.Animal.create(req.body).then(() => {
+        try {
+            const { nome, sexo, dataNascimento, especieId, abrigoId, castrado, porte, informacoes } = req.body;
+
+            // Check if any of the required fields are missing
+            if (!sexo || !dataNascimento || !abrigoId || !porte || !informacoes) {
+                return res.status(400).send("Missing required fields");
+            }
+
+            const animal = new Animal({
+                nome: nome,
+                sexo: sexo,
+                dataNascimento: dataNascimento,
+                especieId: especieId, // Use the PostgreSQL ID directly
+                abrigoId: abrigoId,
+                castrado: castrado,
+                porte: porte,
+                informacoes: informacoes
+            });
+
+            await animal.save();
             res.redirect('/home');
-        }).catch((err) => {
-            console.log(err);
-        });
+        } catch (error) {
+            console.error("Error creating animal:", error);
+            res.status(500).send("Error creating animal");
+        }
     },
     async getList(req, res) {
-        db.Animal.findAll().then(animais => {
-            res.render('animal/animalList', { animais: animais.map(catg => catg.toJSON()) });
-        }).catch((err) => {
-            console.log(err);
-        });
-    },
+            await Animal.find().then(animais => {
+                res.render('animal/animalList', { animais: animais.map(coment => coment.toJSON()) });
+            }).catch((err) => {
+                console.log(err);
+            });
+        },   
     async getUpdate(req, res) {
-        await db.Animal.findByPk(req.params.id).then(
-            animal => res.render('animal/animalUpdate', {animal: animal.dataValues })
-        ).catch(function (err) {
-            console.log(err);
-        });
+        try {
+            const animal = await Animal.findById(req.params.id);
+            const especies = await db.Especie.findAll();
+            res.render('animal/animalUpdate', {
+                animal: animal.toJSON(), // Convert animal to JSON
+                especies: especies.map(especie => especie.toJSON())
+            });
+        } catch (error) {
+            console.error("Error fetching animal or especies:", error);
+            res.status(500).send("Error fetching data");
+        }
     },
     async postUpdate(req, res) {
-        await db.Animal.update(req.body, { where: { id: req.body.id } }).then(
-            res.render('home')
-        ).catch(function (err) {
-            console.log(err);
-        });
+        try {
+            const { id } = req.body; // Extract the ID from the request body
+
+            // Find the animal by ID and update it
+            await Animal.findByIdAndUpdate(id, req.body, { new: true });
+
+            res.redirect('/home'); // Redirect to the animal list or details page
+        } catch (error) {
+            console.error("Error updating animal:", error);
+            res.status(500).send("Error updating animal");
+        }
     },
+
     async getDelete(req, res) {
-        await db.Animal.destroy({ where: { id: req.params.id } }).then(
-            res.render('home')
-        ).catch(err => {
-            console.log(err);
-        });
+        try {
+            const { id } = req.params; // Extract the ID from the request parameters
+
+            // Find the animal by ID and delete it
+            await Animal.findByIdAndDelete(id);
+
+            res.redirect('/home'); // Redirect to the animal list or details page
+        } catch (error) {
+            console.error("Error deleting animal:", error);
+            res.status(500).send("Error deleting animal");
+        }
     }
-}   
+};

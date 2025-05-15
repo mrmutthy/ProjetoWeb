@@ -16,17 +16,24 @@
     <br><br>
 
     <label>Informacoes:</label>
-    <input type="number" name="informacoes" required>
+    <input type="text" name="informacoes" required>
     <br><br>
 
     <label>Porte:</label>
-    <input type="number" name="porte" required>
+    <input type="text" name="porte" required>
     <br><br>
 
+    <label>Abrigo:</label>
+    <select name="abrigoId">
+        {{#each abrigos}}
+        <option value="{{id}}">{{nome}}</option>
+        {{/each}}
+    </select>
+    <br><br>
     <label>Especie:</label>
-    <select name="especieId" >
+    <select name="especieId">
         {{#each especies}}
-            <option value="{{id}}">{{especie}}</option>
+        <option value="{{id}}">{{especie}}</option>
         {{/each}}
     </select>
     <br><br>
