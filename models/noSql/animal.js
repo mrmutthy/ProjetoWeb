@@ -6,11 +6,20 @@ const Animal = Schema({
     sexo: { type: String, required: true },
     dataNascimento: { type: String, required: true },
     abrigoId: { type: String, required: true },
-    especieId: { type: Number, required: true },
     castrado: { type: String, required: false },
     doenca: {type: String, required: false},
     porte: { type: String, required: true },
-    informacoes: { type: String, required: true }
+    especie: { type: String, required: true },
+    raca: { type: String, required: true }
+}, {
+    toJSON: {
+        virtuals: true,
+        transform: function (doc, ret) {
+            ret.id = ret._id;
+            delete ret._id;
+            delete ret.__v;
+        }
+    }
 });
 
-module.exports = mongoose.model("Animal", Animal)
+module.exports = mongoose.model("Animal", Animal, "animais")

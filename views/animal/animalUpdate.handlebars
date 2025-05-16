@@ -7,17 +7,11 @@
     Castrado: <input type="text" name="castrado" value="{{animal.castrado}}">
     <br> <br>
     Especie:
-    <select name="especieId">
-        {{#each especies}}
-        <tr>
-            <option value={{id}}>{{especie}}</option>
-        </tr>
-        {{/each}}
-    </select>
+    <input type="text" name="especie" value="{{animal.especie}}">
     <br> <br>
     Porte: <input type="text" name="porte" value="{{animal.porte}}">
     <br> <br>
-    Informações: <input type="text" name="informacoes" value="{{animal.informacoes}}">
+    Raca: <input type="text" name="raca" value="{{animal.raca}}">
     <br> <br>
     <input type="submit" value="Editar">
 </form>

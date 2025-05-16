@@ -5,24 +5,22 @@ const path = require('path');
 module.exports = {
     async getCreate(req, res) {
         try {
-            const especies = await db.Especie.findAll();
             const abrigos = await db.Abrigo.findAll(); // Fetch abrigos
 
             res.render('animal/animalCreate', {
-                especies: especies.map(especie => especie.toJSON()),
                 abrigos: abrigos.map(abrigo => abrigo.toJSON()) // Pass abrigos to the view
             });
         } catch (error) {
-            console.error("Error fetching especies or abrigos:", error);
-            res.status(500).send("Error fetching especies or abrigos");
+            console.error("Error fetching abrigos:", error);
+            res.status(500).send("Error fetching abrigos");
         }
     },
     async postCreate(req, res) {
         try {
-            const { nome, sexo, dataNascimento, especieId, abrigoId, castrado, porte, informacoes } = req.body;
+            const { nome, sexo, dataNascimento, abrigoId, castrado, porte, especie, raca } = req.body;
 
             // Check if any of the required fields are missing
-            if (!sexo || !dataNascimento || !abrigoId || !porte || !informacoes) {
+            if (!sexo || !dataNascimento || !abrigoId || !porte || !raca || !especie) {
                 return res.status(400).send("Missing required fields");
             }
 
@@ -30,11 +28,11 @@ module.exports = {
                 nome: nome,
                 sexo: sexo,
                 dataNascimento: dataNascimento,
-                especieId: especieId, // Use the PostgreSQL ID directly
                 abrigoId: abrigoId,
                 castrado: castrado,
                 porte: porte,
-                informacoes: informacoes
+                especie: especie,  
+                raca: raca
             });
 
             await animal.save();
@@ -54,10 +52,8 @@ module.exports = {
     async getUpdate(req, res) {
         try {
             const animal = await Animal.findById(req.params.id);
-            const especies = await db.Especie.findAll();
             res.render('animal/animalUpdate', {
                 animal: animal.toJSON(), // Convert animal to JSON
-                especies: especies.map(especie => especie.toJSON())
             });
         } catch (error) {
             console.error("Error fetching animal or especies:", error);
@@ -66,12 +62,12 @@ module.exports = {
     },
     async postUpdate(req, res) {
         try {
-            const { id } = req.body; // Extract the ID from the request body
+            const { id } = req.body; 
 
-            // Find the animal by ID and update it
+            
             await Animal.findByIdAndUpdate(id, req.body, { new: true });
 
-            res.redirect('/home'); // Redirect to the animal list or details page
+            res.redirect('/home'); 
         } catch (error) {
             console.error("Error updating animal:", error);
             res.status(500).send("Error updating animal");

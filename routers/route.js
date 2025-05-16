@@ -1,12 +1,8 @@
 const express = require('express');
 const db = require('../config/db_sequelize');
 const controllerUsuario = require('../controllers/controllerUsuario');
-const controllerComentario = require('../controllers/controllerComentario');
-const controllerCategoria = require('../controllers/controllerCategoria');
 const controllerAnimal = require('../controllers/controllerAnimal');
 const controllerAbrigo = require('../controllers/controllerAbrigo');
-const controllerEspecie = require('../controllers/controllerEspecie');
-const controllerReceita = require('../controllers/controllerReceita');
 const route = express.Router();
 
 /*db.sequelize.sync({force: true}).then(() => {
@@ -38,26 +34,6 @@ route.get("/usuarioUpdate/:id", controllerUsuario.getUpdate);
 route.post("/usuarioUpdate", controllerUsuario.postUpdate);
 route.get("/usuarioDelete/:id", controllerUsuario.getDelete);
 
-//Controller Categoria
-route.get("/categoriaCreate", controllerCategoria.getCreate);
-route.post("/categoriaCreate", controllerCategoria.postCreate);
-route.get("/categoriaList", controllerCategoria.getList);
-route.get("/categoriaUpdate/:id", controllerCategoria.getUpdate);
-route.post("/categoriaUpdate", controllerCategoria.postUpdate);
-route.get("/categoriaDelete/:id", controllerCategoria.getDelete);
-
-//Controller Receita
-route.get("/receitaCreate", controllerReceita.getCreate);
-route.post("/receitaCreate", controllerReceita.postCreate);
-route.get("/receitaList", controllerReceita.getList);
-route.get("/receitaUpdate/:id", controllerReceita.getUpdate);
-route.post("/receitaUpdate", controllerReceita.postUpdate);
-route.get("/receitaDelete/:id", controllerReceita.getDelete);
-
-//Controller Comentario
-route.get("/comentarioCreate", controllerComentario.getCreate);
-route.post("/comentarioCreate", controllerComentario.postCreate);
-route.get("/comentarioList", controllerComentario.getList);
 
 //Controller Animal
 route.get("/animalCreate", controllerAnimal.getCreate);
@@ -67,13 +43,6 @@ route.get("/animalUpdate/:id", controllerAnimal.getUpdate);
 route.post("/animalUpdate", controllerAnimal.postUpdate);
 route.get("/animalDelete/:id", controllerAnimal.getDelete);
 
-//Controller especie
-route.get("/especieCreate", controllerEspecie.getCreate);
-route.post("/especieCreate", controllerEspecie.postCreate);
-route.get("/especieList", controllerEspecie.getList);
-route.get("/especieUpdate/:id", controllerEspecie.getUpdate);
-route.post("/especieUpdate", controllerEspecie.postUpdate);
-route.get("/especieDelete/:id", controllerEspecie.getDelete);
 
 //Controller Abrigo
 route.get("/abrigoCreate", controllerAbrigo.getCreate);

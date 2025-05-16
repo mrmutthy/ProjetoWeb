@@ -30,12 +30,13 @@
         {{/each}}
     </select>
     <br><br>
+
     <label>Especie:</label>
-    <select name="especieId">
-        {{#each especies}}
-        <option value="{{id}}">{{especie}}</option>
-        {{/each}}
-    </select>
+     <input type="text" name="especie" required>
+    <br><br>
+    
+    <label>Raça:</label>
+    <input type="text" name="raca" required>
     <br><br>
 
     <input type="submit" value="Cadastrar">

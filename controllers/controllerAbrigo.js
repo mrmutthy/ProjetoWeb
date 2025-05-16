@@ -25,8 +25,8 @@ module.exports = {
     },
     async postCreate(req, res) {
         try {
-            const { nome, endereco, telefone } = req.body;
-            const abrigo = await db.Abrigo.create({ nome, endereco, telefone });
+            const { nome, endereco, telefone, email } = req.body;
+            const abrigo = await db.Abrigo.create({ nome, endereco, telefone, email });
             res.redirect('/abrigoList');
         } catch (err) {
             console.error(err);
