@@ -1,11 +1,21 @@
-const db = require('../config/db_sequelize'); // Sequelize for Especie
+const mongoose = require('mongoose');
+const db_mongoose = require('../config/db_mongoose');
 const Animal = require('../models/noSql/animal'); // Mongoose for Animal
+const db = require('../config/db_sequelize'); // Sequelize para Abrigo
+
 const path = require('path');
+
+mongoose.connect(db_mongoose.connection).then(() => {
+    console.log('Conectado com o BD');
+}).catch(() => {
+    console.log('Erro na conexão com o BD');
+});
+
 
 module.exports = {
     async getCreate(req, res) {
         try {
-            const abrigos = await db.Abrigo.findAll(); // Fetch abrigos
+           const abrigos = await db.Abrigo.findAll(); // Fetch abrigos
 
             res.render('animal/animalCreate', {
                 abrigos: abrigos.map(abrigo => abrigo.toJSON()) // Pass abrigos to the view
