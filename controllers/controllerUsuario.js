@@ -6,7 +6,7 @@ module.exports = {
         res.render('usuario/login', { layout: 'noMenu.handlebars' });
     },
     async getLogout(req, res) {
-        res.cookie("userData", req.cookies.userData, { maxAge: 0, httpOnly: true });
+        //res.cookie("userData", req.cookies.userData, { maxAge: 0, httpOnly: true });
         req.session.destroy();
         res.redirect('/');
     },
@@ -17,8 +17,14 @@ module.exports = {
         db.Usuario.findAll({ where: { login: req.body.login, senha: req.body.senha } }
         ).then(usuarios => {
             if (usuarios.length > 0) {
-                res.cookie("userData", user, { maxAge: 30 * 60 * 1000, httpOnly: true });
+                //res.cookie("userData", user, { maxAge:30 * 60 * 1000, httpOnly: true });
                 req.session.login = req.body.login;
+                res.locals.login = req.body.login; 
+                if (usuarios[0].dataValues.tipo == 2) {
+                    req.session.tipo = usuarios[0].dataValues.tipo;
+                    res.locals.admin = true;
+                }
+                
                 res.render('home');
             } else
                 res.redirect('/');
