@@ -1,0 +1,49 @@
+import React, { useState } from 'react';
+
+const AbrigoForm = () => {
+    const [nome, setNome] = useState('');
+    const [mensagem, setMensagem] = useState('');
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const token = localStorage.getItem('token'); // Obter token do localStorage
+
+        try {
+            const response = await fetch('http://localhost:8081/api/abrigos', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}` // Adicionar token aos cabeçalhos
+                },
+                body: JSON.stringify({ nome })
+            });
+
+            if (!response.ok) {
+                throw new Error('Erro ao criar abrigo');
+            }
+
+            const data = await response.json();
+            console.log('Abrigo criado:', data);
+            setMensagem('Abrigo cadastrado com sucesso!');
+            setNome('');
+        } catch (error) {
+            console.error('Erro ao criar abrigo:', error);
+            setMensagem('Erro ao cadastrar abrigo');
+        }
+    };
+
+    return (
+        <div>
+            <form onSubmit={handleSubmit}>
+                <div>
+                    <label>Nome</label>
+                    <input type="text" value={nome} onChange={e => setNome(e.target.value)} />
+                </div>
+                <button type="submit">Criar Abrigo</button>
+            </form>
+            {mensagem && <p>{mensagem}</p>}
+        </div>
+    );
+};
+
+export default AbrigoForm;
