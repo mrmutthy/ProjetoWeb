@@ -8,8 +8,10 @@
         <td> Castrado </td>
         <td> Porte </td>
         <td> Raça </td>
+        {{#if admin}}
         <td> Editar </td>
         <td> Deletar </td>
+        {{/if}}
     </tr>
     {{#each animais}}
     <tr>
@@ -21,8 +23,10 @@
         <td>{{castrado}}</td>
         <td>{{porte}}</td>
         <td>{{raca}}</td>
+        {{#if ../admin}}
         <td><a href="animalUpdate/{{id}}">Editar</a></td>
         <td><a href="animalDelete/{{id}}">Deletar</a></td>
+        {{/if}}
     </tr>
     {{/each}}
 </table>
