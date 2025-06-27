@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 const AbrigoForm = () => {
     const [nome, setNome] = useState('');
+    const [email, setEmail] = useState('');
     const [mensagem, setMensagem] = useState('');
 
     const handleSubmit = async (e) => {
@@ -15,7 +16,7 @@ const AbrigoForm = () => {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}` // Adicionar token aos cabeçalhos
                 },
-                body: JSON.stringify({ nome })
+                body: JSON.stringify({ nome, email })
             });
 
             if (!response.ok) {
@@ -26,6 +27,7 @@ const AbrigoForm = () => {
             console.log('Abrigo criado:', data);
             setMensagem('Abrigo cadastrado com sucesso!');
             setNome('');
+            setEmail('');
         } catch (error) {
             console.error('Erro ao criar abrigo:', error);
             setMensagem('Erro ao cadastrar abrigo');
@@ -38,6 +40,10 @@ const AbrigoForm = () => {
                 <div>
                     <label>Nome</label>
                     <input type="text" value={nome} onChange={e => setNome(e.target.value)} />
+                </div>
+                <div>
+                    <label>Email</label>
+                    <input type="email" value={email} onChange={e => setEmail(e.target.value)} />
                 </div>
                 <button type="submit">Criar Abrigo</button>
             </form>

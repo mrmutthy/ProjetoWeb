@@ -19,14 +19,14 @@ module.exports = {
             res.status(500).json({ error: 'Erro ao listar animais' });
         }
     },
-    async getAnimaisByCategoria(req, res) {
-        try {
-            const animais = await Animal.find({ categoriaId: req.params.id });
-            res.status(200).json(animais);
-        } catch (err) {
-            console.error(err);
-            res.status(500).json({ error: 'Erro ao listar animais' });
-        }
+    async getAnimaisByAbrigo(req, res) {
+    try {
+        const animais = await Animal.find({ abrigoId: req.params.id });
+        res.status(200).json(animais);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Erro ao listar animais por abrigo' });
+    }
     },
     async getAnimalById(req, res) {
         try {

@@ -4,6 +4,7 @@ function AbrigoList() {
     const [abrigos, setAbrigos] = useState([]);
     const [editandoAbrigo, setEditandoAbrigo] = useState(null);
     const [nomeAbrigoEditado, setNomeAbrigoEditado] = useState('');
+    const [emailAbrigoEditado, setEmailAbrigoEditado] = useState('');
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -44,14 +45,16 @@ function AbrigoList() {
         .catch((err) => console.error(err));
     };
 
-    const handleEdit = (id, nome) => {
+    const handleEdit = (id, nome, email) => {
         setEditandoAbrigo(id);
         setNomeAbrigoEditado(nome);
+        setEmailAbrigoEditado(email);
     };
 
     const cancelarEdicao = () => {
         setEditandoAbrigo(null);
         setNomeAbrigoEditado('');
+        setEmailAbrigoEditado('');
     };
 
     const salvarEdicao = (id) => {
@@ -63,12 +66,16 @@ function AbrigoList() {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             },
-            body: JSON.stringify({ nome: nomeAbrigoEditado })
+            body: JSON.stringify({ nome: nomeAbrigoEditado, email: emailAbrigoEditado })
         })
         .then((resp) => {
             if (!resp.ok) {
                 throw new Error('Falha ao editar abrigo');
             }
+            // Atualiza a lista localmente após edição
+            setAbrigos(abrigos.map(abrigo =>
+                abrigo.id === id ? { ...abrigo, nome: nomeAbrigoEditado, email: emailAbrigoEditado } : abrigo
+            ));
             setEditandoAbrigo(null);
         })
         .catch((err) => console.error(err));
@@ -81,6 +88,7 @@ function AbrigoList() {
                 <thead>
                     <tr>
                         <th>Nome</th>
+                        <th>Email</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
@@ -100,13 +108,24 @@ function AbrigoList() {
                             </td>
                             <td>
                                 {editandoAbrigo === abrigo.id ? (
+                                    <input
+                                        type="email"
+                                        value={emailAbrigoEditado}
+                                        onChange={(e) => setEmailAbrigoEditado(e.target.value)}
+                                    />
+                                ) : (
+                                    abrigo.email
+                                )}
+                            </td>
+                            <td>
+                                {editandoAbrigo === abrigo.id ? (
                                     <>
                                         <button onClick={() => salvarEdicao(abrigo.id)}>Salvar</button>
                                         <button onClick={cancelarEdicao}>Cancelar</button>
                                     </>
                                 ) : (
                                     <>
-                                        <button onClick={() => handleEdit(abrigo.id, abrigo.nome)}>Editar</button>
+                                        <button onClick={() => handleEdit(abrigo.id, abrigo.nome, abrigo.email)}>Editar</button>
                                         <button onClick={() => handleDelete(abrigo.id)}>Excluir</button>
                                     </>
                                 )}

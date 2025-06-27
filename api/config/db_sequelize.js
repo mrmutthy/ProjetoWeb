@@ -9,7 +9,5 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 db.Usuario = require('../models/relational/usuario.js')(sequelize, Sequelize);
 db.Abrigo = require('../models/relational/abrigo.js')(sequelize, Sequelize);
-db.Receita = require('../models/receita.js')(sequelize, Sequelize);
-db.Categoria = require('../models/categoria.js')(sequelize, Sequelize);
 module.exports = db;
 

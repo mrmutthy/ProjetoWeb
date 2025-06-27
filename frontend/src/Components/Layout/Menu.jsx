@@ -29,23 +29,6 @@ function Menu() {
                     <li className="nav-item">
                         <Link to="/animais-por-abrigo" className="nav-link">Animais por Abrigo</Link>
                     </li>
-                    {/* Categoria */}
-                    <li className="nav-item">
-                        <Link to="/categorias" className="nav-link">Categoria Listar</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to="/nova-categoria" className="nav-link">Categoria Cadastrar</Link>
-                    </li>
-                    {/* Receita */}
-                    <li className="nav-item">
-                        <Link to="/receitas-categoria" className="nav-link">Receita Listar por Categoria</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to="/receitas" className="nav-link">Receita Listar</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to="/nova-receita" className="nav-link">Receita Cadastrar</Link>
-                    </li>
                     {/* Usuario */}
                     <li className="nav-item">
                         <Link to="/usuarios" className="nav-link">Usuario Listar</Link>

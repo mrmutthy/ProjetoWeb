@@ -7,12 +7,6 @@ module.exports = (sequelize, Sequelize) => {
         nome: {
             type: Sequelize.STRING, allowNull: false
         },
-        endereco: {
-            type: Sequelize.STRING, allowNull: false
-        },
-        telefone: {
-            type: Sequelize.STRING, allowNull: false
-        },
         email:{
             type: Sequelize.STRING, allowNull: false
         },
