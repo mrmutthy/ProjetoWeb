@@ -1,45 +1,34 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../Styles/Menu.css';
 
-function Menu() {
+const Menu = () => {
+    const [open, setOpen] = useState(false);
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        localStorage.clear();
+        navigate('/login');
+    };
+
     return (
-        <nav className="navbar">
-            <div className="container">
-                <ul className="navbar-nav">
-                    <li className="nav-item">
-                        <Link to="/" className="nav-link">Home</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to="/login" className="nav-link">Login</Link>
-                    </li>
-                    {/* Abrigo */}
-                    <li className="nav-item">
-                        <Link to="/abrigos" className="nav-link">Abrigo Listar</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to="/novo-abrigo" className="nav-link">Abrigo Cadastrar</Link>
-                    </li>
-                    {/* Animal */}
-                    <li className="nav-item">
-                        <Link to="/animais" className="nav-link">Animal Listar</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to="/novo-animal" className="nav-link">Animal Cadastrar</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to="/animais-por-abrigo" className="nav-link">Animais por Abrigo</Link>
-                    </li>
-                    {/* Usuario */}
-                    <li className="nav-item">
-                        <Link to="/usuarios" className="nav-link">Usuario Listar</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to="/novo-usuario" className="nav-link">Usuario Cadastrar</Link>
-                    </li>
+        <>
+            <div className="menu-hamburguer" onClick={() => setOpen(true)}>
+                &#9776;
+            </div>
+            <div className={`sidebar ${open ? 'open' : ''}`}>
+                <button className="close-btn" onClick={() => setOpen(false)}>×</button>
+                <ul>
+                    <li onClick={() => { navigate('/home'); setOpen(false); }}>Home</li>
+                    <li onClick={() => { navigate('/abrigos'); setOpen(false); }}>Ver Abrigos</li>
+                    <li onClick={() => { navigate('/animais'); setOpen(false); }}>Ver Animais</li>
+                    <li onClick={() => { navigate('/animais-por-abrigo'); setOpen(false); }}>Ver animais por abrigo</li>
+                    <li onClick={handleLogout}>Logout</li>
                 </ul>
             </div>
-        </nav>
+            {open && <div className="sidebar-overlay" onClick={() => setOpen(false)}></div>}
+        </>
     );
-}
+};
 
 export default Menu;

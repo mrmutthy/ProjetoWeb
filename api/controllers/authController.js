@@ -6,7 +6,7 @@ module.exports = {
     async login(req, res) {
         try {
             const { login, senha } = req.body;
-            const user = await db.Usuario.findOne({ where: { login:req.body.login } });
+            const user = await db.Usuario.findOne({ where: { login: req.body.login } });
 
             if (!user) {
                 return res.status(404).json({ error: 'Usuário não encontrado' });
@@ -17,7 +17,12 @@ module.exports = {
             }
 
             const token = generateToken(user);
-            res.status(200).json({ token });
+            res.status(200).json({
+                token,
+                nome: user.nome,
+                email: user.email,
+                tipo: user.tipo
+            });
         } catch (err) {
             console.error(err);
             res.status(500).json({ error: 'Erro ao fazer login' });

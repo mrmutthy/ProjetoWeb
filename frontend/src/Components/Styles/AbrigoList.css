@@ -1,0 +1,124 @@
+body, html {
+    overflow-x: hidden;
+}
+.abrigo-list-center {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #222;
+}
+
+.abrigo-list-container {
+    max-width: 700px;
+    margin: 48px auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px #0002;
+    padding: 40px 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.abrigo-list-container h1 {
+    color: #1976d2;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.abrigo-list-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 24px;
+    background: #fafbfc;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px #0001;
+}
+
+.abrigo-list-container th, .abrigo-list-container td {
+    padding: 14px 10px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.abrigo-list-container th {
+    background: #e3f0fa;
+    color: #1976d2;
+    font-weight: 700;
+}
+
+.abrigo-list-container tr:last-child td {
+    border-bottom: none;
+}
+
+.abrigo-list-container button {
+    min-width: 110px;
+    background: linear-gradient(90deg, #1976d2 60%, #42a5f5 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 0 4px;
+    box-shadow: 0 2px 8px #1976d233;
+    transition: background 0.2s, transform 0.1s;
+    display: inline-block;
+}
+
+.abrigo-list-container button:hover {
+    background: linear-gradient(90deg, #1253a4 60%, #1976d2 100%);
+    transform: scale(1.04);
+}
+
+.abrigo-list-container .btn-excluir {
+    background: linear-gradient(90deg, #d32f2f 60%, #ff5252 100%);
+    color: #fff;
+}
+
+.abrigo-list-container .btn-excluir:hover {
+    background: linear-gradient(90deg, #b71c1c 60%, #d32f2f 100%);
+}
+
+.abrigo-list-container input[type="text"],
+.abrigo-list-container input[type="email"] {
+    padding: 10px 14px;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #f9f9f9;
+    transition: border 0.2s;
+    width: 180px;
+    margin-bottom: 4px;
+    text-align: center;
+}
+
+.abrigo-list-container input:focus {
+    border-color: #1976d2;
+    outline: none;
+}
+
+.abrigo-list-container,
+.abrigo-list-container * {
+    color: #555;
+}
+
+.abrigo-list-container h1,
+.abrigo-list-container label,
+.abrigo-list-container th {
+    color: #1976d2 !important;
+}
+
+.abrigo-list-container th {
+    font-weight: 700;
+}
+
+.abrigo-list-container td {
+    color: #555 !important;
+}

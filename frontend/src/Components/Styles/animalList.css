@@ -1,0 +1,226 @@
+body, html {
+    overflow-x: hidden;
+}
+
+.animal-list-container {
+    max-width: 900px;
+    margin: 48px auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px #0002;
+    padding: 40px 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.animal-list-center {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #222;
+}
+
+.animal-list-container h1 {
+    color: #1976d2;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.animal-list-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 24px;
+    background: #fafbfc;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px #0001;
+}
+
+.animal-list-container th, .animal-list-container td {
+    padding: 14px 10px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.animal-list-container th {
+    background: #e3f0fa;
+    color: #1976d2;
+    font-weight: 700;
+}
+
+.animal-list-container tr:last-child td {
+    border-bottom: none;
+}
+
+/* ...código existente... */
+
+.animal-list-container button {
+    min-width: 110px; /* Deixa todos os botões do mesmo tamanho */
+    background: linear-gradient(90deg, #1976d2 60%, #42a5f5 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 0 4px;
+    box-shadow: 0 2px 8px #1976d233;
+    transition: background 0.2s, transform 0.1s;
+    display: inline-block;
+}
+
+.animal-list-container button:hover {
+    background: linear-gradient(90deg, #1253a4 60%, #1976d2 100%);
+    transform: scale(1.04);
+}
+
+/* Botão de excluir vermelho */
+.animal-list-container .btn-excluir,
+.modal .btn-excluir {
+    background: linear-gradient(90deg, #d32f2f 60%, #ff5252 100%);
+    color: #fff;
+}
+
+.animal-list-container .btn-excluir:hover,
+.modal .btn-excluir:hover {
+    background: linear-gradient(90deg, #b71c1c 60%, #d32f2f 100%);
+}
+
+/* Modal */
+.modal button {
+    min-width: 110px;
+    background: linear-gradient(90deg, #1976d2 60%, #42a5f5 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 8px 6px 0 6px;
+    box-shadow: 0 2px 8px #1976d233;
+    transition: background 0.2s, transform 0.1s;
+    display: inline-block;
+}
+
+/* Modal de edição */
+.modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: #0007;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.modal form {
+    background: #fff;
+    padding: 36px 48px;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px #0003;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px 32px;
+    justify-content: center;
+    min-width: 340px;
+    max-width: 90vw;
+}
+
+.modal form > div {
+    flex: 1 1 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #1976d2;
+    text-align: center;
+}
+
+/* ...seu css existente... */
+
+.animal-list-container select,
+.modal select {
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #f5faff;
+    color: #555;
+    width: 220px;
+    margin-bottom: 4px;
+    text-align: center;
+    box-shadow: 0 2px 8px #1976d211;
+}
+
+
+.animal-list-container option,
+.modal option {
+    color: #333;
+    background: #fff;
+}
+
+.modal input {
+    padding: 10px 14px;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #f9f9f9;
+    transition: border 0.2s;
+    width: 200px;
+    margin-bottom: 4px;
+    text-align: center;
+}
+
+.modal input:focus {
+    border-color: #1976d2;
+    outline: none;
+}
+
+.modal button {
+    background: linear-gradient(90deg, #1976d2 60%, #42a5f5 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 8px 6px 0 6px;
+    box-shadow: 0 2px 8px #1976d233;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.modal button:hover {
+    background: linear-gradient(90deg, #1253a4 60%, #1976d2 100%);
+    transform: scale(1.04);
+}
+
+/* ...seu css existente... */
+
+.animal-list-container,
+.animal-list-container * {
+    color: #555;
+}
+
+.animal-list-container h1,
+.animal-list-container label,
+.animal-list-container th {
+    color: #1976d2 !important;
+}
+
+.animal-list-container th {
+    font-weight: 700;
+}
+
+.animal-list-container td {
+    color: #555 !important;
+}

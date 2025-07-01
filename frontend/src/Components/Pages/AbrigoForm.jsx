@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../Styles/AbrigoForm.css';
 
 const AbrigoForm = () => {
     const [nome, setNome] = useState('');
@@ -35,19 +36,22 @@ const AbrigoForm = () => {
     };
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Nome</label>
-                    <input type="text" value={nome} onChange={e => setNome(e.target.value)} />
-                </div>
-                <div>
-                    <label>Email</label>
-                    <input type="email" value={email} onChange={e => setEmail(e.target.value)} />
-                </div>
-                <button type="submit">Criar Abrigo</button>
-            </form>
-            {mensagem && <p>{mensagem}</p>}
+        <div className="abrigo-form-center">
+            <div className="abrigo-form-container">
+                <h1>Cadastrar Novo Abrigo</h1>
+                <form onSubmit={handleSubmit}>
+                    <div>
+                        <label>Nome</label>
+                        <input type="text" value={nome} onChange={e => setNome(e.target.value)} />
+                    </div>
+                    <div>
+                        <label>Email</label>
+                        <input type="email" value={email} onChange={e => setEmail(e.target.value)} />
+                    </div>
+                    <button type="submit">Criar Abrigo</button>
+                </form>
+                {mensagem && <p>{mensagem}</p>}
+            </div>
         </div>
     );
 };

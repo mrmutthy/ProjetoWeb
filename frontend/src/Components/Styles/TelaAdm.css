@@ -1,0 +1,54 @@
+body, html {
+    overflow-x: hidden;
+}
+
+.tela-adm-center {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #222;
+}
+
+.tela-adm-title {
+    color: #1976d2;
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 32px 0 24px 0;
+    text-align: center;
+}
+
+.tela-adm-btns {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tela-adm-btns button {
+    background: #181818;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 28px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    box-shadow: 0 2px 8px #0002;
+}
+
+.tela-adm-btns button:hover,
+.tela-adm-btns button:focus {
+    background: #1976d2;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.tela-adm-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

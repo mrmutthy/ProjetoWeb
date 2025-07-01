@@ -1,0 +1,158 @@
+body, html {
+    overflow-x: hidden;
+}
+
+.home-center {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #222;
+}
+
+.home-container {
+    max-width: 1100px;
+    margin: 48px auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px #0002;
+    padding: 40px 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 32px 0 24px 0;
+}
+
+.home-header h1 {
+    color: #1976d2;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.btn-direita {
+    padding: 10px 24px;
+    background: linear-gradient(90deg, #1976d2 60%, #42a5f5 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #1976d233;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.btn-direita:hover,
+.btn-direita:focus {
+    background: linear-gradient(90deg, #1253a4 60%, #1976d2 100%);
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.card-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+    margin-bottom: 32px;
+}
+
+.animal-card, .abrigo-card {
+    background: #bcdaee;
+    border-radius: 8px;
+    padding: 20px 28px;
+    min-width: 140px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #0001;
+    transition: transform 0.1s, box-shadow 0.2s;
+    font-size: 1.1rem;
+    color: #1976d2;
+    font-weight: 600;
+}
+
+.animal-card:hover, .abrigo-card:hover {
+    transform: scale(1.07);
+    box-shadow: 0 4px 16px #1976d233;
+    background: #e3f0fa;
+}
+
+.animal-modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: #0008;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.animal-modal-content {
+    background: #fff;
+    padding: 32px;
+    border-radius: 12px;
+    min-width: 300px;
+    max-width: 90vw;
+    box-shadow: 0 4px 24px #0003;
+    color: #555;
+}
+
+.animal-modal-content h3 {
+    color: #1976d2;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.animal-modal-content button {
+    margin-top: 18px;
+    background: linear-gradient(90deg, #1976d2 60%, #42a5f5 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #1976d233;
+    transition: background 0.2s, transform 0.1s;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.animal-modal-content button:hover {
+    background: linear-gradient(90deg, #1253a4 60%, #1976d2 100%);
+    transform: scale(1.04);
+}
+
+section h2 {
+    color: #1976d2;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 24px 0 12px 0;
+    text-align: center;
+}
+
+p {
+    color: #000;
+}
+
+@media (max-width: 900px) {
+    .home-container {
+        padding: 20px 8px;
+    }
+    .animal-card, .abrigo-card {
+        min-width: 100px;
+        padding: 14px 10px;
+        font-size: 1rem;
+    }
+}
