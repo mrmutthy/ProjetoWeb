@@ -77,8 +77,7 @@ function UsuarioList() {
                     throw new Error('Falha ao editar usuário');
                 }
                 setEditandoUsuario(null);
-                // Atualizar a lista de usuários para refletir as alterações
-                // Pode ser melhor atualizar a lista de usuários consultando a API novamente
+                
             })
             .catch((err) => console.error(err));
     };

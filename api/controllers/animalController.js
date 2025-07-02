@@ -1,4 +1,4 @@
-const Animal = require('../models/noSql/animal'); // ajuste o caminho se necessário
+const Animal = require('../models/noSql/animal'); 
 
 module.exports = {
     async postAnimal(req, res) {

@@ -74,7 +74,7 @@ function AbrigoList() {
                 if (!resp.ok) {
                     throw new Error('Falha ao editar abrigo');
                 }
-                // Atualiza a lista localmente após edição
+                
                 setAbrigos(abrigos.map(abrigo =>
                     abrigo.id === id ? { ...abrigo, nome: nomeAbrigoEditado, email: emailAbrigoEditado } : abrigo
                 ));

@@ -8,14 +8,14 @@ const AbrigoForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const token = localStorage.getItem('token'); // Obter token do localStorage
+        const token = localStorage.getItem('token'); 
 
         try {
             const response = await fetch('http://localhost:8081/api/abrigos', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}` // Adicionar token aos cabeçalhos
+                    'Authorization': `Bearer ${token}` 
                 },
                 body: JSON.stringify({ nome, email })
             });

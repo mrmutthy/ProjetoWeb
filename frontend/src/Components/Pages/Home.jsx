@@ -10,7 +10,6 @@ function Home() {
     const [animalSelecionado, setAnimalSelecionado] = useState(null);
     const navigate = useNavigate();
 
-    // Pega o tipo do usuário do localStorage
     const tipoUsuario = localStorage.getItem('tipo');
 
     useEffect(() => {

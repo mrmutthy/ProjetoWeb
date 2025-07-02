@@ -21,7 +21,7 @@ function AppRoutes() {
     <>
       {!hideMenu && <Menu />}
       <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<LoginForm />} />
           <Route path="/home" element={<Home />} />
           <Route path="/tela-adm" element={<TelaAdm />} />
           <Route path="/login" element={<LoginForm />} />
@@ -33,7 +33,6 @@ function AppRoutes() {
           <Route path="/usuarios" element={<UsuarioList />} />
           <Route path="/novo-usuario" element={<UsuarioForm />} />
       </Routes>
-      <Rodape />
     </>
   );
 }

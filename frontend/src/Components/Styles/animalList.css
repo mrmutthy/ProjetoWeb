@@ -56,10 +56,9 @@ body, html {
     border-bottom: none;
 }
 
-/* ...código existente... */
 
 .animal-list-container button {
-    min-width: 110px; /* Deixa todos os botões do mesmo tamanho */
+    min-width: 110px; 
     background: linear-gradient(90deg, #1976d2 60%, #42a5f5 100%);
     color: #fff;
     border: none;
@@ -79,7 +78,7 @@ body, html {
     transform: scale(1.04);
 }
 
-/* Botão de excluir vermelho */
+
 .animal-list-container .btn-excluir,
 .modal .btn-excluir {
     background: linear-gradient(90deg, #d32f2f 60%, #ff5252 100%);
@@ -91,7 +90,7 @@ body, html {
     background: linear-gradient(90deg, #b71c1c 60%, #d32f2f 100%);
 }
 
-/* Modal */
+
 .modal button {
     min-width: 110px;
     background: linear-gradient(90deg, #1976d2 60%, #42a5f5 100%);
@@ -108,7 +107,7 @@ body, html {
     display: inline-block;
 }
 
-/* Modal de edição */
+
 .modal {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -146,7 +145,7 @@ body, html {
     text-align: center;
 }
 
-/* ...seu css existente... */
+
 
 .animal-list-container select,
 .modal select {
@@ -203,8 +202,6 @@ body, html {
     background: linear-gradient(90deg, #1253a4 60%, #1976d2 100%);
     transform: scale(1.04);
 }
-
-/* ...seu css existente... */
 
 .animal-list-container,
 .animal-list-container * {

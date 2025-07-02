@@ -9,14 +9,14 @@ const UsuarioForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const token = localStorage.getItem('token'); // Obter token do localStorage
+        const token = localStorage.getItem('token'); 
 
         try {
             const response = await fetch('http://localhost:8081/api/usuarios', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}` // Adicionar token aos cabeçalhos
+                    'Authorization': `Bearer ${token}` 
                 },
                 body: JSON.stringify({ login, senha, tipo })
             });
@@ -28,7 +28,6 @@ const UsuarioForm = () => {
             const data = await response.json();
             console.log('Usuário criado:', data);
             setMensagem('Usuário cadastrado com sucesso!');
-            // Limpar os campos após o usuário ser cadastrado
             setLogin('');
             setSenha('');
             setTipo('');

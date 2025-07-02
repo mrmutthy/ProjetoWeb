@@ -54,7 +54,6 @@ label, h2{
     background: #fff;
 }
 
-/* Ajuste para o label do select */
 .animal-list-abrigo-container label {
     font-weight: 600;
     margin-bottom: 8px;
@@ -63,7 +62,6 @@ label, h2{
     display: block;
 }
 
-/* Ajuste para centralizar o bloco do select */
 .animal-list-abrigo-container > div {
     display: flex;
     flex-direction: column;

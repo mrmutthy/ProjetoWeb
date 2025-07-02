@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../Styles/AnimalForm.css'; // Importando o CSS para estilização do formulário
+import '../Styles/AnimalForm.css';
 
 const AnimalForm = () => {
     const [nome, setNome] = useState('');
@@ -18,7 +18,7 @@ const AnimalForm = () => {
     useEffect(() => {
         const token = localStorage.getItem('token');
 
-        // Buscar animais
+        
         fetch('http://localhost:8081/api/animais', {
             method: 'GET',
             headers: {
@@ -35,7 +35,7 @@ const AnimalForm = () => {
             .then((data) => setAnimais(data))
             .catch((err) => console.error(err));
 
-        // Buscar abrigos
+        
         fetch('http://localhost:8081/api/abrigos', {
             method: 'GET',
             headers: {
@@ -73,7 +73,7 @@ const AnimalForm = () => {
 
             const data = await response.json();
             setMensagem('Animal cadastrado com sucesso!');
-            // Limpar os campos do formulário após o animal ser cadastrado
+    
             setNome('');
             setSexo('');
             setDataNascimento('');
@@ -83,7 +83,6 @@ const AnimalForm = () => {
             setPorte('');
             setEspecie('');
             setRaca('');
-            // Atualizar a lista de animais
             setAnimais([...animais, data]);
         } catch (error) {
             console.error('Erro ao criar animal:', error);

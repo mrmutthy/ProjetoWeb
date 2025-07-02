@@ -12,7 +12,7 @@ app.use(cors());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/api', routes); // Prefixo para as rotas da API
+app.use('/api', routes);
 
 mongoose.connect(db.connection, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB conectado!'))

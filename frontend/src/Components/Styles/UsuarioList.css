@@ -87,8 +87,6 @@ body, html {
     background: linear-gradient(90deg, #b71c1c 60%, #d32f2f 100%);
 }
 
-/* ...seu css existente... */
-
 .usuario-list-container input[type="text"],
 .usuario-list-container input[type="password"],
 .usuario-list-container input[type="number"] {
@@ -114,7 +112,6 @@ body, html {
     vertical-align: middle;
 }
 
-/* Ajuste para alinhar botões com os campos */
 .usuario-list-container button {
     min-width: 110px;
     background: linear-gradient(90deg, #1976d2 60%, #42a5f5 100%);

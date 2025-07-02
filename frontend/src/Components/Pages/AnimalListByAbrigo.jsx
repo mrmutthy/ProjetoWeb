@@ -10,7 +10,6 @@ const AnimalListByAbrigo = () => {
     useEffect(() => {
         const token = localStorage.getItem('token');
 
-        // Buscar abrigos
         fetch('http://localhost:8081/api/abrigos', {
             method: 'GET',
             headers: {
@@ -33,7 +32,6 @@ const AnimalListByAbrigo = () => {
         setAbrigoId(selectedAbrigoId);
         const token = localStorage.getItem('token');
 
-        // Buscar animais por abrigo
         fetch(`http://localhost:8081/api/abrigos/${selectedAbrigoId}/animais`, {
             method: 'GET',
             headers: {

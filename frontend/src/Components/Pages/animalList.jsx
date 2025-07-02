@@ -38,7 +38,6 @@ function AnimalList() {
             .then((data) => setAnimais(data))
             .catch((err) => console.log(err));
 
-        // Buscar abrigos
         fetch('http://localhost:8081/api/abrigos', {
             method: 'GET',
             headers: {
